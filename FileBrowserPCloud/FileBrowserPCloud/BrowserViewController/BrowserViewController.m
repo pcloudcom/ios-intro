@@ -12,15 +12,14 @@
 #import "GrandFinalleViewController.h"
 
 @interface BrowserViewController ()<NSURLConnectionDataDelegate> {
-    NSString *_token;
     NSMutableData *_responseData;
+    
+    NSArray *_contents;
+    NSNumber *_folderID;
     
     NSURLConnection *_connection;
     NSURLConnection *_videoLinkConnection;
     NSURLConnection *_audioLinkConnection;
-    
-    NSArray *_contents;
-    NSNumber *_folderID;
 }
 
 @end
@@ -48,9 +47,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _token = @"s8CY3yWHPrbZkMdkZCBMKaslperhtqkNKf4kFQFIpJrzk";
 
+    [self listFolder];
+}
+
+- (void)listFolder
+{
     NSString *urlString = @"http://api.pcloud.com/listfolder?auth=s8CY3yWHPrbZkMdkZCBMKaslperhtqkNKf4kFQFIpJrzk&folderid=";
     
     urlString = [NSString stringWithFormat:@"%@%@", urlString, _folderID.stringValue];
@@ -86,7 +88,9 @@
     NSLog(@"%@", res);
     
     if (_connection == connection) {
-        _contents = [[res objectForKey:@"metadata"] objectForKey:@"contents"];
+        NSDictionary *metaData = [res objectForKey:@"metadata"];
+        _contents = [metaData objectForKey:@"contents"];
+        self.title = [metaData[@"name"] isEqualToString:@"/"] ? @"Root" : metaData[@"name"];
     } else if (_videoLinkConnection == connection) {
         NSLog(@"Callback from video link request");
         NSArray *hosts = res[@"hosts"];
