@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>52484C9B-C29B-4A10-842F-EA2ADA41EF11</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FileBrowserPCloud</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EE3CA2F6-24E5-4C36-9CDC-E0A24B883C84</key>
+		<string>ssh://github.com/pcloudfs/ios-intro.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FileBrowserPCloud/FileBrowserPCloud.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EE3CA2F6-24E5-4C36-9CDC-E0A24B883C84</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/pcloudfs/ios-intro.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EE3CA2F6-24E5-4C36-9CDC-E0A24B883C84</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EE3CA2F6-24E5-4C36-9CDC-E0A24B883C84</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SoftUni</string>
+		</dict>
+	</array>
+</dict>
+</plist>

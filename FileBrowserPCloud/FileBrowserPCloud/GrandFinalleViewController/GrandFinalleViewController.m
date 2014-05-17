@@ -54,10 +54,10 @@
 	
 	_secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(320.0f, 140.0f, 320.0f, 100.0f)];
 	_secondLabel.font = [UIFont boldSystemFontOfSize:30.0f];
-	_secondLabel.textColor = [UIColor blackColor];
+	_secondLabel.textColor = [UIColor blueColor];
 	_secondLabel.textAlignment = NSTextAlignmentCenter;
 	_secondLabel.backgroundColor = [UIColor clearColor];
-	_secondLabel.text = @"Въпроси?";
+	_secondLabel.text = @"https://github.com/pcloudfs/ios-intro";
 	_secondLabel.lineBreakMode = NSLineBreakByWordWrapping;
 	_secondLabel.numberOfLines = 0;
 	[self.view addSubview:_secondLabel];

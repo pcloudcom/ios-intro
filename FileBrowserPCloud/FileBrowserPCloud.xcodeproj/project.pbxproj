@@ -20,8 +20,8 @@
 		4D121C931924CDC200F777C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D121C911924CDC200F777C6 /* InfoPlist.strings */; };
 		4D121C951924CDC200F777C6 /* FileBrowserPCloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D121C941924CDC200F777C6 /* FileBrowserPCloudTests.m */; };
 		4D121CA11924CE2200F777C6 /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D121CA01924CE2200F777C6 /* BrowserViewController.m */; };
-		4D65E8341924D80B00E3D55C /* file.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4D65E8321924D80B00E3D55C /* file.jpg */; };
-		4D65E8351924D80B00E3D55C /* folder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4D65E8331924D80B00E3D55C /* folder.jpg */; };
+		4D61B8351926068700F27511 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D61B8331926068700F27511 /* folder.png */; };
+		4D61B8361926068700F27511 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D61B8341926068700F27511 /* file.png */; };
 		4D65E8391924EB9500E3D55C /* GrandFinalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E8381924EB9500E3D55C /* GrandFinalleViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +54,8 @@
 		4D121C941924CDC200F777C6 /* FileBrowserPCloudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileBrowserPCloudTests.m; sourceTree = "<group>"; };
 		4D121C9F1924CE2200F777C6 /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowserViewController.h; path = BrowserViewController/BrowserViewController.h; sourceTree = "<group>"; };
 		4D121CA01924CE2200F777C6 /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowserViewController.m; path = BrowserViewController/BrowserViewController.m; sourceTree = "<group>"; };
-		4D65E8321924D80B00E3D55C /* file.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = file.jpg; sourceTree = "<group>"; };
-		4D65E8331924D80B00E3D55C /* folder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = folder.jpg; sourceTree = "<group>"; };
+		4D61B8331926068700F27511 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		4D61B8341926068700F27511 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
 		4D65E8371924EB9500E3D55C /* GrandFinalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrandFinalleViewController.h; sourceTree = "<group>"; };
 		4D65E8381924EB9500E3D55C /* GrandFinalleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrandFinalleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,8 +130,8 @@
 		4D121C761924CDC200F777C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4D65E8321924D80B00E3D55C /* file.jpg */,
-				4D65E8331924D80B00E3D55C /* folder.jpg */,
+				4D61B8331926068700F27511 /* folder.png */,
+				4D61B8341926068700F27511 /* file.png */,
 				4D121C771924CDC200F777C6 /* FileBrowserPCloud-Info.plist */,
 				4D121C781924CDC200F777C6 /* InfoPlist.strings */,
 				4D121C7B1924CDC200F777C6 /* main.m */,
@@ -252,9 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D121C7A1924CDC200F777C6 /* InfoPlist.strings in Resources */,
-				4D65E8351924D80B00E3D55C /* folder.jpg in Resources */,
-				4D65E8341924D80B00E3D55C /* file.jpg in Resources */,
 				4D121C821924CDC200F777C6 /* Images.xcassets in Resources */,
+				4D61B8351926068700F27511 /* folder.png in Resources */,
+				4D61B8361926068700F27511 /* file.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,8 @@
 #import "GrandFinalleViewController.h"
 
 @interface BrowserViewController ()<NSURLConnectionDataDelegate> {
+    NSString *_token;
+    
     NSMutableData *_responseData;
     
     NSArray *_contents;
@@ -47,19 +49,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    _token = @"s8CY3yWHPrbZkMdkZCBMKaslperhtqkNKf4kFQFIpJrzk&folderid";
+    
     [self listFolder];
 }
 
 - (void)listFolder
 {
-    NSString *urlString = @"http://api.pcloud.com/listfolder?auth=s8CY3yWHPrbZkMdkZCBMKaslperhtqkNKf4kFQFIpJrzk&folderid=";
+    NSString *urlString = @"http://api.pcloud.com/listfolder";
     
-    urlString = [NSString stringWithFormat:@"%@%@", urlString, _folderID.stringValue];
+    NSURL *url =[NSURL URLWithString:urlString];
     
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSString *params = [[NSString alloc] initWithFormat:@"auth=%@&folderid=%@", _token, _folderID.stringValue];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
     _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
@@ -70,7 +77,6 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"receiving data %@", data);
     [_responseData appendData:data];
 }
 
@@ -139,15 +145,18 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
-    NSDictionary *current = _contents[indexPath.row];
-    cell.textLabel.text = current[@"name"];
+    NSDictionary *currentObject = _contents[indexPath.row];
     
-    if ([current[@"isfolder"] integerValue] == 1) {
-        cell.imageView.image = [UIImage imageNamed:@"folder.jpg"];
+    cell.textLabel.text = [currentObject objectForKey:@"name"];
+
+    if ([[currentObject objectForKey:@"isfolder"] integerValue] == 1) {
+        //this is folder
+        cell.imageView.image = [UIImage imageNamed:@"folder.png"];
     } else {
-        cell.imageView.image = [UIImage imageNamed:@"file.jpg"];
+        //this is file
+        cell.imageView.image = [UIImage imageNamed:@"file.png"];
     }
-	
+    
 	return cell;
 }
 
@@ -160,6 +169,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSDictionary *selectedObject = _contents[indexPath.row];
     
     if ([[selectedObject objectForKey:@"isfolder"] integerValue] == 1) {
@@ -185,12 +195,16 @@
 
 - (void)getVideoLinkWithFileID:(NSNumber *)fileID
 {
-    NSString *getVideoLinkRequestString = [NSString
-                                           stringWithFormat:@"http://api.pcloud.com/gethlslink?auth=s8CY3yWHPrbZkMdkZCBMKaslperhtqkNKf4kFQFIpJrzk&vbitrate=640&abitrate=40&resolution=640x480&fileid=%@", fileID.stringValue];
+    NSString *urlString = @"http://api.pcloud.com/gethlslink";
     
-    NSURL *url = [NSURL URLWithString:getVideoLinkRequestString];
+    NSURL *url = [NSURL URLWithString:urlString];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *params = [NSString stringWithFormat:@"auth=%@&vbitrate=%@&abitrate=%@&resolution=%@&fileid=%@", _token, @"640", @"40", @"640x480", fileID.stringValue];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
     _videoLinkConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
@@ -198,11 +212,16 @@
 
 - (void)getFileLinkWithFileID:(NSNumber *)fileID
 {
-    NSString *getFileLinkRequestString = [NSString stringWithFormat:@"http://api.pcloud.com/getfilelink?auth=s8CY3yWHPrbZkMdkZCBMKaslperhtqkNKf4kFQFIpJrzk&fileid=%@", fileID.stringValue];
+    NSString *urlString = @"http://api.pcloud.com/getfilelink";
     
-    NSURL *url = [NSURL URLWithString:getFileLinkRequestString];
+    NSURL *url = [NSURL URLWithString:urlString];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *params = [NSString stringWithFormat:@"auth=%@&fileid=%@", _token, fileID.stringValue];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
     _audioLinkConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
